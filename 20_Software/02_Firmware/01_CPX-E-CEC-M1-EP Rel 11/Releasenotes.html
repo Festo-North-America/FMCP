@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+			<title>Releasenotes</title>
+		</head>
+		<body>
+			<h1>Revision: 11</h1>
+			<h2>Hardware from Revision 8</h2>
+			<table border=1>
+				<thead>
+					<tr>
+						<th scope="col" rowspan="2">Filetype</th>
+						<th scope="col" rowspan="2">Filename</th>
+						<th scope="col" rowspan="2">Version</th>
+						<th scope= "colgroup" colspan="2">Release notes</th>
+					</tr>
+					<tr>
+						<th scope="col">DE</th>
+						<th scope="col">EN</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Bootloader</td>
+						<td>cpx-e-cec-bootloader-11.0.4-8a9f08b66.20211125.ffwu</td>
+						<td>11.0.4</td>
+						<td>
+						
+							<ul>Wichtige Information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarevorraussetzung: CPX-E-CEC-C1/M1-EP/PN Revision >= 8</ul>
+							<ul>Fehlerbehebungen:</ul>
+							<ul>[BUGEA-4434257] Firmwareupdate endet sporadisch in einem timeout und das Gerät ist nicht mehr erreichbar (Firmwaredownload dennoch erfolgreich)</ul>
+							<ul>Zusätzliche Korrekturen/Erweiterungen:</ul>
+						</td>
+						<td>
+							<ul>Important information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarerequirement: CPX-E-CEC-C1/M1-EP/PN Revision >= 8</ul>
+							<ul>Bugfixes:</ul>
+							<ul>[BUGEA-4434257] Flashing device using FFT leads to timeout and non-responsible device (but successful flash)</ul>
+							<ul>Additional fixes/enhancements:</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>miscellaneous</td>
+						<td>cpx-e-cec-misc-1.0.0-8a9f08b66.20211125.ffwu</td>
+						<td>1.0.0</td>
+						<td>
+							<ul>Wichtige Information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarevorraussetzung: CPX-E-CEC-C1/M1-EP/PN Revision >= 8</ul>
+							<ul>Zusätzliche Korrekturen/Erweiterungen:</ul>
+							<ul>Neue Systempartition die den Lizenzcontainer enthält</ul>
+							<ul>Installationshinweis:</ul>
+							<ul>Die Lizenzpartition muss beim Upgrade von Revision 8 Hardware nach dem Aufspielen des Bootloaders einmalig aufgespielt werden, erst danach ist ein Update mit der FW 3.2.10 möglich.</ul>
+						</td>
+						<td> 
+							<ul>Important information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarerequirement: CPX-E-CEC-C1/M1-EP/PN Revision >= 8</ul>
+							<ul>Additional fixes/enhancements:</ul>
+							<ul>New system partition which contains the licensecontainer</ul>
+							<ul>Installation hints:</ul>
+							<ul>Updating Revision 8 hardware: after updating the bootloader the system partition have to be installed once. After that it is possible to update the firmware 3.2.10.</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Firmware</td>
+						<td>cpx-e-cec-firmware-3.2.10-8a9f08b66.20211125.ffwu</td>
+						<td>3.2.10</td>
+						<td>
+							<ul>CODESYS runtime: 3.5.16.40</ul>
+							<ul>Wichtige Information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarevorraussetzung: CPX-E-CEC-C1/M1-EP/PN Revision >= 8</ul>
+							<ul>Fehlerbehebungen:</ul>
+							<ul>[BUGEA-4605039] EtherCAT läuft nicht an - AL Status read from slave address 1003 status 16#17 : Invalid sync manager config</ul>
+							<ul>[BUGEA-4598157] EtherCAT Scan FB37: Module nicht gefunden</ul>
+							<ul>[BUGEA-4516580] sporadischer Bootprojektverlust beim Test mit langsamen Spannungsrampen(60s)</ul>
+							<ul>[BUGEA-4371885] sporadische Exception beim Ein-/Ausschaltest mit Bootprojekt</ul>
+							<ul>[BUGEA-4370791] PLC Shell Kommando "config" funktioniert nicht</ul>
+							<ul>[BUGEA-4314070] sporadischer Watchdog Fehler mit EtherCAT-Applikationen</ul>
+							<ul>[BUGEA-4270483] Fehler inm Wibu-Lizenzhandling über das Webinterface</ul>
+							<ul>[BUGEA-4083943] Alter Festo Name im OPCUA urn-String</ul>
+							<ul>[BUGEA-4204905] cpx-e-cec webinterface: Neuladen der Netzwerkeinstellugen nach Änderung der IP-Adresse funktioniert nicht</ul>
+							<ul>[BUGEA-4632064] busybox: Speicherleck bei 24/7 Betrieb mit ash basierenden Watchdog shell Skripten</ul>
+							<ul>[BUGEA-4720770] PN-Kommunikation nach Konfigurationsänderung nicht möglich erst nach Reboot/Neustart</ul>
+							<ul>[BUGEA-4733008] Verlust der Bootapplikation bei schnellen Spannungsrampen</ul>
+							<ul>Zusätzliche Korrekturen/Erweiterungen:</ul>
+							<ul>Update auf Codesys Laufzeitsystem 3.5.16.40</ul>
+							<ul>Integration Synchronisierung Systembus und EtherCAT-Feldbus</ul>
+						</td>
+						<td> 
+							<ul>CODESYS runtime: 3.5.16.40</ul>
+							<ul>Important information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarerequirement: CPX-E-CEC-C1/M1-EP/PN Revision >= 8</ul>
+							<ul>Bugfixes:</ul>
+							<ul>[BUGEA-4605039] EtherCAT don't starts - AL Status read from slave address 1003 status 16#17 : Invalid sync manager config</ul>
+							<ul>[BUGEA-4598157] EtherCAT Scan FB37: Modules not found</ul>
+							<ul>[BUGEA-4516580] Boot application lost during 60 second power ramps</ul>
+							<ul>[BUGEA-4371885] Exception when boot application is started after power cycle - off / on</ul>
+							<ul>[BUGEA-4370791] PLC Shell command "config" not working</ul>
+							<ul>[BUGEA-4314070] Watchdog error occurs with EtherCAT-Application</ul>
+							<ul>[BUGEA-4270483] Error in Wibu-Licensehandling via Webinterface</ul>
+							<ul>[BUGEA-4083943] Old Festo name in OPCUA urn-String</ul>
+							<ul>[BUGEA-4204905] cpx-e-cec webinterface network page reload after static ip-address change not working</ul>
+							<ul>[BUGEA-4632064] busybox: Memory leak during 24/7 operation with watchdog's ash shell scripts</ul>
+							<ul>[BUGEA-4720770] PN-communication after change of configuration not possible without reboot</ul>
+							<ul>[BUGEA-4733008] lost bootapplication during fast powerramps-test</ul>
+							<ul>Additional fixes/enhancements:</ul>
+							<ul>Update to Codesys runtime 3.5.16.40</ul>
+							<ul>Integration synchronising systembus and EtherCAT-Fieldbus</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2>Hardware below Revision 8</h2>
+			<table border=1>
+				<thead>
+					<tr>
+						<th scope="col" rowspan="2">Filetype</th>
+						<th scope="col" rowspan="2">Filename</th>
+						<th scope="col" rowspan="2">Version</th>
+						<th scope= "colgroup" colspan="2">Release notes</th>
+					</tr>
+					<tr>
+						<th scope="col">DE</th>
+						<th scope="col">EN</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Bootloader</td>
+						<td>R11 for old HW(below R8)\cpx-e-cec-bootloader-10.0.4-124bfd90e.20211125.ffwu</td>
+						<td>10.0.4</td>
+						<td>
+							<ul>Wichtige Information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarevorraussetzung: CPX-E-CEC-C1/M1-EP/PN Revision 2-7</ul>
+							<ul>Fehlerbehebungen:</ul>
+							<ul>[BUGEA-4434257] Firmwareupdate endet sporadisch in einem timeout und das Gerät ist nicht mehr erreichbar (Firmwaredownload dennoch erfolgreich)</ul>
+							<ul>Zusätzliche Korrekturen/Erweiterungen:</ul>
+						</td>
+						<td>
+							<ul>Important information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarerequirement: CPX-E-CEC-C1/M1-EP/PN Revision 2-7</ul>
+							<ul>Bugfixes:</ul>
+							<ul>[BUGEA-4434257] Flashing device using FFT leads to timeout and non-responsible device (but successful flash)</ul>
+							<ul>Additional fixes/enhancements:</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>miscellaneous</td>
+						<td>R11 for old HW(below R8)\cpx-e-cec-misc-1.0.0-124bfd90e.20211125.ffwu</td>
+						<td>1.0.0</td>
+						<td>
+							<ul>Wichtige Information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarevorraussetzung: CPX-E-CEC-C1/M1-EP/PN Revision 2-7</ul>
+							<ul>Zusätzliche Korrekturen/Erweiterungen:</ul>
+							<ul>Neue Systempartition die den Lizenzcontainer enthält</ul>
+							<ul>Installationshinweis:</ul>
+							<ul>Die Lizenzpartition muss nach dem Aufspielen des Bootloaders einmalig aufgespielt werden, erst danach ist ein Update der FW 2.2.14 möglich.</ul>
+						</td>
+						<td> 
+							<ul>Important information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarerequirement: CPX-E-CEC-C1/M1-EP/PN Revision 2-7</ul>
+							<ul>Additional fixes/enhancements:</ul>
+							<ul>New system partition which contains the licensecontainer</ul>
+							<ul>Installation hints:</ul>
+							<ul>After updating the bootloader the system partition have to be installed once. After that it is possible to update the firmware 2.2.14.</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Firmware</td>
+						<td>R11 for old HW(below R8)\cpx-e-cec-firmware-2.2.14-124bfd90e.20211125.ffwu</td>
+						<td>2.2.14</td>
+						<td>
+							<ul>CODESYS runtime: 3.5.16.40</ul>
+							<ul>Wichtige Information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarevorraussetzung: CPX-E-CEC-C1/M1-EP/PN Revision 2-7</ul>
+							<ul>Fehlerbehebungen:</ul>
+							<ul>[BUGEA-4605039] EtherCAT läuft nicht an - AL Status read from slave address 1003 status 16#17 : Invalid sync manager config</ul>
+							<ul>[BUGEA-4598157] EtherCAT Scan FB37: Module nicht gefunden</ul>
+							<ul>[BUGEA-4516580] sporadischer Bootprojektverlust beim Test mit langsamen Spannungsrampen(60s)</ul>
+							<ul>[BUGEA-4371885] sporadische Exception beim Ein-/Ausschaltest mit Bootprojekt</ul>
+							<ul>[BUGEA-4370791] PLC Shell Kommando "config" funktioniert nicht</ul>
+							<ul>[BUGEA-4314070] sporadischer Watchdog Fehler mit EtherCAT-Applikationen</ul>
+							<ul>[BUGEA-4270483] Fehler inm Wibu-Lizenzhandling über das Webinterface</ul>
+							<ul>[BUGEA-4083943] Alter Festo Name im OPCUA urn-String</ul>
+							<ul>[BUGEA-4204905] cpx-e-cec webinterface: Neuladen der Netzwerkeinstellugen nach Änderung der IP-Adresse funktioniert nicht</ul>
+							<ul>[BUGEA-4632064] busybox: Speicherleck bei 24/7 Betrieb mit ash basierenden Watchdog shell Skripten</ul>
+							<ul>[BUGEA-4733008] Verlust der Bootapplikation bei schnellen Spannungsrampen</ul>
+							<ul>Zusätzliche Korrekturen/Erweiterungen:</ul>
+							<ul>Update auf Codesys Laufzeitsystem 3.5.16.40</ul>
+							<ul>Integration Synchronisierung Systembus und EtherCAT-Feldbus</ul>
+						</td>
+						<td> 
+							<ul>CODESYS runtime: 3.5.16.40</ul>
+							<ul>Important information</ul>
+							<ul>====================</ul>
+							<ul>Hardwarerequirement: CPX-E-CEC-C1/M1-EP/PN Revision 2-7</ul>
+							<ul>Bugfixes:</ul>
+							<ul>[BUGEA-4605039] EtherCAT don't starts - AL Status read from slave address 1003 status 16#17 : Invalid sync manager config</ul>
+							<ul>[BUGEA-4598157] EtherCAT Scan FB37: Modules not found</ul>
+							<ul>[BUGEA-4516580] Boot application lost during 60 second power ramps</ul>
+							<ul>[BUGEA-4371885] Exception when boot application is started after power cycle - off / on</ul>
+							<ul>[BUGEA-4370791] PLC Shell command "config" not working</ul>
+							<ul>[BUGEA-4314070] Watchdog error occurs with EtherCAT-Application</ul>
+							<ul>[BUGEA-4270483] Error in Wibu-Licensehandling via Webinterface</ul>
+							<ul>[BUGEA-4083943] Old Festo name in OPCUA urn-String</ul>
+							<ul>[BUGEA-4204905] cpx-e-cec webinterface network page reload after static ip-address change not working</ul>
+							<ul>[BUGEA-4632064] busybox: Memory leak during 24/7 operation with watchdog's ash shell scripts</ul>
+							<ul>[BUGEA-4733008] lost bootapplication during fast powerramps-test</ul>
+							<ul>Additional fixes/enhancements:</ul>
+							<ul>Update to Codesys runtime 3.5.16.40</ul>
+							<ul>Integration synchronising systembus and EtherCAT-Fieldbus</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</body>
+	</html>
