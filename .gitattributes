@@ -5,3 +5,4 @@
 *.package filter=lfs diff=lfs merge=lfs -text
 *.L5X filter=lfs diff=lfs merge=lfs -text
 *.acd filter=lfs diff=lfs merge=lfs -text
+*.packagearchive filter=lfs diff=lfs merge=lfs -text
