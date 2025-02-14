@@ -1,0 +1,15 @@
+=============================================================
+Released Library Revision Notes: ExtendedProcessData_Festo_EIP_64bit_AOI.L5X
+=============================================================
+------------------------------------------------------------------------------------------------------------------------
+Version                           Date of Release                       Modified by
+V1.0                                26.08.2024                          us0cgrt
+
+------------------------------------------------------------------------------------------------------------------------
+Changes in Library:
+
+V1.0
+Release Version
+Modified 32bit AOI from standard Festo PTP AOI library to include 64-bit datatypes (primarily LINT).
+Rockwell support for 8-byte datatypes begins with Studio5000 v33.xx.xx
+
