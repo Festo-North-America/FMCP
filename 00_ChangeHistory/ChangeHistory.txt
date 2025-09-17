@@ -4,6 +4,7 @@ FMCP File Structure Branch Release Revision Notes: FMCP_reorg
 ------------------------------------------------------------------------------------------------------------------------
 Version                           Date of Release                       Modified by
 V1.0                                13.02.2025                          us0dth
+V1.1                                17.09.2025                          us0dth
 
 ------------------------------------------------------------------------------------------------------------------------
 Changes in Library:
@@ -11,3 +12,7 @@ Changes in Library:
 V1.0
 Release Version
 Changed File structure in the FMCP software package to reduce the number of subfolders and the number of zip files underneath the folders
+
+V1.1
+Release Version
+Removed corrupted CPX-E-CEC_3.5.16.139 package file and replaced with a non-corrupted version
