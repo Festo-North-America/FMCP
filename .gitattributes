@@ -1,3 +1,4 @@
 CODESYS[[:space:]]SoftMotion[[:space:]]4.13.0.0.package filter=lfs diff=lfs merge=lfs -text
 CPX-E-CEC_3.5.16.139(9627b2d634bd).package filter=lfs diff=lfs merge=lfs -text
 *.fsi filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
