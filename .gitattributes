@@ -1,9 +1,0 @@
-*.zip filter=lfs diff=lfs merge=lfs -text
-*.fsi filter=lfs diff=lfs merge=lfs -text
-*.cab filter=lfs diff=lfs merge=lfs -text
-*.package filter=lfs diff=lfs merge=lfs -text
-*.L5X filter=lfs diff=lfs merge=lfs -text
-*.acd filter=lfs diff=lfs merge=lfs -text
-*.packagearchive filter=lfs diff=lfs merge=lfs -text
-*.projectarchive filter=lfs diff=lfs merge=lfs -text
-RockwellHostPLC/CODESYS[[:space:]]3.5.16.70/20_Software/03_Festo_Automation_Suite/FestoAutomationSuite_2.7.0.752.exe filter=lfs diff=lfs merge=lfs -text
