@@ -1,3 +1,3388 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:804aaaf801892e5e554be5df5d57b0eb66490881773e656da10727da896d26bc
-size 114337
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Multikinematic AOI to control up to 4 axis per kinematic and up to 3 different kinematics-->
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="36.00" TargetName="FMCP_Multi_EVO3_CPX_E_SP12_CPX_E" TargetType="AddOnInstructionDefinition" TargetRevision="3.14 15" TargetLastEdited="2024-06-24T18:56:20.987Z" ContainsContext="true" ExportDate="Fri Jan 31 12:51:23 2025" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="FMCP_6212024">
+<DataTypes Use="Context">
+</DataTypes>
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Use="Target" Name="FMCP_Multi_EVO3_CPX_E_SP12_CPX_E" Revision="3.14" RevisionExtension="15" Vendor="Festo Inc" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2017-02-13T18:10:12.475Z" CreatedBy="AED-389891EB173\AED" EditedDate="2024-06-24T18:56:20.987Z"
+ EditedBy="AzureAD\MichaelThomas" SoftwareRevision="v34.02">
+<Description>
+<![CDATA[Multikinematic AOI to control up to 4 axis per kinematic and up to 3 different kinematics]]>
+</Description>
+<RevisionNote>
+<![CDATA[3.14.15: Multikinematic with 4 axis per kinematic
+3.14.15: Additional tag to try to recover from a minor fault]]>
+</RevisionNote>
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Input - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Output - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="InputData" TagType="Base" DataType="DINT" Dimensions="64" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false"/>
+<Parameter Name="OutputData" TagType="Base" DataType="DINT" Dimensions="64" Usage="InOut" Radix="Decimal" Required="true" Visible="true" Constant="false"/>
+<Parameter Name="K_I_N_E_M_A_T_I_C_1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="I_n_p_u_t_s_K_1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="sModeSelectorK1" TagType="Base" DataType="SINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="sModeSelectedK1" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rXAxisMove_CNCOffsetK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rYAxisMove_CNCOffsetK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisMove_CNCOffsetK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rUAxisMoveK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisOffset_CNCNumberK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rSmoothRad_CNCPhiK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rNominalVel_CNCConstantVelK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rLowVelMoveK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[100]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="100"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rMoveAccelerationK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rMoveDecelerationK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisUpMoveK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMoveK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogXPosK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogXNegK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogYPosK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogYNegK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogZPosK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogZNegK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogUPosK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogUNegK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAckMK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAckAllMK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHaltK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAbortMotionTaskK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bTryToClearFaultK1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="uOverrideK1" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="O_u_t_p_u_t_s_K_1" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rXAxisActualPositionK1" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rYAxisActualPositionK1" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisActualPositionK1" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rUAxisActualPositionK1" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bEnabledK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHomedK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHaltedK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMoveDnK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMovingK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bBusyK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bErrorK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bSafetyStatusK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMotionTaskAbortedK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bXAxisSWLimitNegK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bXAxisSWLimitPosK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bYAxisSWLimitNegK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bYAxisSWLimitPosK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bZAxisSWLimitNegK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bZAxisSWLimitPosK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bUAxisSWLimitNegK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bUAxisSWLimitPosK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHSwitchPoint1K1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHSwitchPoint2K1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMActiveK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="dErrorCode1K1" TagType="Base" DataType="DINT" Usage="Output" Radix="Hex" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="dErrorCode2K1" TagType="Base" DataType="DINT" Usage="Output" Radix="Hex" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rGCodeLineK1" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPrePickK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPickK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPrePlaceK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPlaceK1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="K_I_N_E_M_A_T_I_C_2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="I_n_p_u_t_s_K_2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="sModeSelectorK2" TagType="Base" DataType="SINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="sModeSelectedK2" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rXAxisMove_CNCOffsetK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rYAxisMove_CNCOffsetK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisMove_CNCOffsetK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rUAxisMoveK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisOffset_CNCNumberK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rSmoothRad_CNCPhiK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rNominalVel_CNCConstantVelK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rLowVelMoveK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[100]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="100"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rMoveAccelerationK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rMoveDecelerationK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisUpMoveK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMoveK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogXPosK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogXNegK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogYPosK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogYNegK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogZPosK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogZNegK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogUPosK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogUNegK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAckMK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAckAllMK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHaltK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAbortMotionTaskK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bTryToClearFaultK2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="uOverrideK2" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="O_u_t_p_u_t_s_K_2" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rXAxisActualPositionK2" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rYAxisActualPositionK2" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisActualPositionK2" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rUAxisActualPositionK2" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bEnabledK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHomedK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHaltedK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMoveDnK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMovingK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bBusyK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bErrorK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bSafetyStatusK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMotionTaskAbortedK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bXAxisSWLimitNegK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bXAxisSWLimitPosK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bYAxisSWLimitNegK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bYAxisSWLimitPosK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bZAxisSWLimitNegK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bZAxisSWLimitPosK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bUAxisSWLimitNegK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bUAxisSWLimitPosK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHSwitchPoint1K2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHSwitchPoint2K2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMActiveK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="dErrorCode1K2" TagType="Base" DataType="DINT" Usage="Output" Radix="Hex" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="dErrorCode2K2" TagType="Base" DataType="DINT" Usage="Output" Radix="Hex" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rGCodeLineK2" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPrePickK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPickK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPrePlaceK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPlaceK2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="K_I_N_E_M_A_T_I_C_3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="I_n_p_u_t_s_K_3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="sModeSelectorK3" TagType="Base" DataType="SINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="sModeSelectedK3" TagType="Base" DataType="SINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="SINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rXAxisMove_CNCOffsetK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rYAxisMove_CNCOffsetK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisMove_CNCOffsetK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rUAxisMoveK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisOffset_CNCNumberK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rSmoothRad_CNCPhiK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rNominalVel_CNCConstantVelK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rLowVelMoveK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[100]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="100"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rMoveAccelerationK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rMoveDecelerationK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1000]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="1000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisUpMoveK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMoveK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogXPosK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogXNegK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogYPosK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogYNegK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogZPosK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogZNegK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogUPosK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bJogUNegK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAckMK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAckAllMK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHaltK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAbortMotionTaskK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bTryToClearFaultK3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="uOverrideK3" TagType="Base" DataType="DINT" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="O_u_t_p_u_t_s_K_3" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rXAxisActualPositionK3" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rYAxisActualPositionK3" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rZAxisActualPositionK3" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rUAxisActualPositionK3" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bEnabledK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHomedK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHaltedK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMoveDnK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMovingK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bBusyK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bErrorK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bSafetyStatusK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMotionTaskAbortedK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bXAxisSWLimitNegK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bXAxisSWLimitPosK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bYAxisSWLimitNegK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bYAxisSWLimitPosK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bZAxisSWLimitNegK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bZAxisSWLimitPosK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bUAxisSWLimitNegK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bUAxisSWLimitPosK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHSwitchPoint1K3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bHSwitchPoint2K3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bMActiveK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="dErrorCode1K3" TagType="Base" DataType="DINT" Usage="Output" Radix="Hex" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="dErrorCode2K3" TagType="Base" DataType="DINT" Usage="Output" Radix="Hex" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_0000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="rGCodeLineK3" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPrePickK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPickK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPrePlaceK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bAtPlaceK3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="O_t_h_e_r_s" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bFuseBlockStatus1" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bFuseBlockStatus2" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="bFuseBlockStatus3" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="iErrorCodeLocal" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_32" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_1" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_In_0" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_In_32" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_0" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_38" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_33" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_17" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_16" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_7" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_6" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_In_16" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_39" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_23" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="EIP_Out_22" DataType="DINT" Radix="Decimal" ExternalAccess="None">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="ST">
+<STContent>
+<Line Number="0">
+<![CDATA[(* ]]>
+</Line>
+<Line Number="1">
+<![CDATA[***************************************************************************************************************************]]>
+</Line>
+<Line Number="2">
+<![CDATA[Name: FMCP Multikinematic Function Block ]]>
+</Line>
+<Line Number="3">
+<![CDATA[Author: ca0lop]]>
+</Line>
+<Line Number="4">
+<![CDATA[Notes:]]>
+</Line>
+<Line Number="5">
+<![CDATA[Uses the X8 port to transfer mapped data to and from an AB PLC as fast as 10ms, 32I - 32O Data REAL.]]>
+</Line>
+<Line Number="6">
+<![CDATA[Festo Positioning Basic EVO3 V3.5.10.x Festo Position Basic Library with CoDeSys SP12]]>
+</Line>
+<Line Number="7">
+<![CDATA[*************2***************************************************************************************************************]]>
+</Line>
+<Line Number="8">
+<![CDATA[(*DataOut means Coming from PLC*)]]>
+</Line>
+<Line Number="9">
+<![CDATA[(*DataIn means Going to PLC*)]]>
+</Line>
+<Line Number="10">
+<![CDATA[(*FROM FESTO PLC X8*)]]>
+</Line>
+<Line Number="11">
+<![CDATA[EIP_In_0.0 := sModeSelectorK1.0;]]>
+</Line>
+<Line Number="12">
+<![CDATA[EIP_In_0.1 := sModeSelectorK1.1;]]>
+</Line>
+<Line Number="13">
+<![CDATA[EIP_In_0.2 := sModeSelectorK1.2;]]>
+</Line>
+<Line Number="14">
+<![CDATA[EIP_In_0.3 := sModeSelectorK1.3;]]>
+</Line>
+<Line Number="15">
+<![CDATA[EIP_In_0.4 := sModeSelectorK1.4;]]>
+</Line>
+<Line Number="16">
+<![CDATA[EIP_In_0.5 := sModeSelectorK1.5;]]>
+</Line>
+<Line Number="17">
+<![CDATA[EIP_In_0.6 := sModeSelectorK1.6;]]>
+</Line>
+<Line Number="18">
+<![CDATA[EIP_In_0.7 := sModeSelectorK1.7;]]>
+</Line>
+<Line Number="19">
+<![CDATA[EIP_In_0.8 := bHaltK1;]]>
+</Line>
+<Line Number="20">
+<![CDATA[EIP_In_0.9 := bAbortMotionTaskK1;]]>
+</Line>
+<Line Number="21">
+<![CDATA[EIP_In_0.10 := bMoveK1;]]>
+</Line>
+<Line Number="22">
+<![CDATA[EIP_In_0.11 := bJogXPosK1;]]>
+</Line>
+<Line Number="23">
+<![CDATA[EIP_In_0.12 := bJogXNegK1;]]>
+</Line>
+<Line Number="24">
+<![CDATA[EIP_In_0.13 := bJogYPosK1;]]>
+</Line>
+<Line Number="25">
+<![CDATA[EIP_In_0.14 := bJogYNegK1;]]>
+</Line>
+<Line Number="26">
+<![CDATA[EIP_In_0.15 := bJogZPosK1;]]>
+</Line>
+<Line Number="27">
+<![CDATA[EIP_In_0.16 := bJogZNegK1;]]>
+</Line>
+<Line Number="28">
+<![CDATA[EIP_In_0.17 := bJogUPosK1;]]>
+</Line>
+<Line Number="29">
+<![CDATA[EIP_In_0.18 := bJogUNegK1;]]>
+</Line>
+<Line Number="30">
+<![CDATA[EIP_In_0.19 := bAckMK1;]]>
+</Line>
+<Line Number="31">
+<![CDATA[EIP_In_0.20 := bAckAllMK1;]]>
+</Line>
+<Line Number="32">
+<![CDATA[EIP_In_0.21 := bTryToClearFaultK1;]]>
+</Line>
+<Line Number="33">
+<![CDATA[EIP_In_0.22 := 0;//SPARE]]>
+</Line>
+<Line Number="34">
+<![CDATA[EIP_In_0.23 := 0;//SPARE]]>
+</Line>
+<Line Number="35">
+<![CDATA[EIP_In_0.24 := uOverrideK1.0;]]>
+</Line>
+<Line Number="36">
+<![CDATA[EIP_In_0.25 := uOverrideK1.1;]]>
+</Line>
+<Line Number="37">
+<![CDATA[EIP_In_0.26 := uOverrideK1.2;]]>
+</Line>
+<Line Number="38">
+<![CDATA[EIP_In_0.27 := uOverrideK1.3;]]>
+</Line>
+<Line Number="39">
+<![CDATA[EIP_In_0.28 := uOverrideK1.4;]]>
+</Line>
+<Line Number="40">
+<![CDATA[EIP_In_0.29 := uOverrideK1.5;]]>
+</Line>
+<Line Number="41">
+<![CDATA[EIP_In_0.30 := uOverrideK1.6;]]>
+</Line>
+<Line Number="42">
+<![CDATA[EIP_In_0.31 := uOverrideK1.7;]]>
+</Line>
+<Line Number="43">
+<![CDATA[CPS(EIP_In_0,OutputData[0],1);]]>
+</Line>
+<Line Number="44">
+<![CDATA[]]>
+</Line>
+<Line Number="45">
+<![CDATA[OutputData[1] 	:= rXAxisMove_CNCOffsetK1;]]>
+</Line>
+<Line Number="46">
+<![CDATA[OutputData[2] 	:= rYAxisMove_CNCOffsetK1;]]>
+</Line>
+<Line Number="47">
+<![CDATA[OutputData[3] 	:= rZAxisMove_CNCOffsetK1;]]>
+</Line>
+<Line Number="48">
+<![CDATA[OutputData[4] 	:= rUAxisMoveK1;]]>
+</Line>
+<Line Number="49">
+<![CDATA[OutputData[5] 	:= rZAxisOffset_CNCNumberK1;]]>
+</Line>
+<Line Number="50">
+<![CDATA[OutputData[6] 	:= rSmoothRad_CNCPhiK1;]]>
+</Line>
+<Line Number="51">
+<![CDATA[OutputData[7] 	:= rNominalVel_CNCConstantVelK1;]]>
+</Line>
+<Line Number="52">
+<![CDATA[OutputData[8] 	:= rLowVelMoveK1;]]>
+</Line>
+<Line Number="53">
+<![CDATA[OutputData[9] 	:= rMoveAccelerationK1;]]>
+</Line>
+<Line Number="54">
+<![CDATA[OutputData[10]	:= rMoveDecelerationK1;]]>
+</Line>
+<Line Number="55">
+<![CDATA[OutputData[11] 	:= rZAxisUpMoveK1;]]>
+</Line>
+<Line Number="56">
+<![CDATA[OutputData[12] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="57">
+<![CDATA[OutputData[13] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="58">
+<![CDATA[OutputData[14] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="59">
+<![CDATA[OutputData[15] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="60">
+<![CDATA[]]>
+</Line>
+<Line Number="61">
+<![CDATA[]]>
+</Line>
+<Line Number="62">
+<![CDATA[EIP_In_16.0 := sModeSelectorK2.0;]]>
+</Line>
+<Line Number="63">
+<![CDATA[EIP_In_16.1 := sModeSelectorK2.1;]]>
+</Line>
+<Line Number="64">
+<![CDATA[EIP_In_16.2 := sModeSelectorK2.2;]]>
+</Line>
+<Line Number="65">
+<![CDATA[EIP_In_16.3 := sModeSelectorK2.3;]]>
+</Line>
+<Line Number="66">
+<![CDATA[EIP_In_16.4 := sModeSelectorK2.4;]]>
+</Line>
+<Line Number="67">
+<![CDATA[EIP_In_16.5 := sModeSelectorK2.5;]]>
+</Line>
+<Line Number="68">
+<![CDATA[EIP_In_16.6 := sModeSelectorK2.6;]]>
+</Line>
+<Line Number="69">
+<![CDATA[EIP_In_16.7 := sModeSelectorK2.7;]]>
+</Line>
+<Line Number="70">
+<![CDATA[EIP_In_16.8 := bHaltK2;]]>
+</Line>
+<Line Number="71">
+<![CDATA[EIP_In_16.9 := bAbortMotionTaskK2;]]>
+</Line>
+<Line Number="72">
+<![CDATA[EIP_In_16.10 := bMoveK2;]]>
+</Line>
+<Line Number="73">
+<![CDATA[EIP_In_16.11 := bJogXPosK2;]]>
+</Line>
+<Line Number="74">
+<![CDATA[EIP_In_16.12 := bJogXNegK2;]]>
+</Line>
+<Line Number="75">
+<![CDATA[EIP_In_16.13 := bJogYPosK2;]]>
+</Line>
+<Line Number="76">
+<![CDATA[EIP_In_16.14 := bJogYNegK2;]]>
+</Line>
+<Line Number="77">
+<![CDATA[EIP_In_16.15 := bJogZPosK2;]]>
+</Line>
+<Line Number="78">
+<![CDATA[EIP_In_16.16 := bJogZNegK2;]]>
+</Line>
+<Line Number="79">
+<![CDATA[EIP_In_16.17 := bJogUPosK2;]]>
+</Line>
+<Line Number="80">
+<![CDATA[EIP_In_16.18 := bJogUNegK2;]]>
+</Line>
+<Line Number="81">
+<![CDATA[EIP_In_16.19 := bAckMK2;]]>
+</Line>
+<Line Number="82">
+<![CDATA[EIP_In_16.20 := bAckAllMK2;]]>
+</Line>
+<Line Number="83">
+<![CDATA[EIP_In_16.21 := bTryToClearFaultK2;]]>
+</Line>
+<Line Number="84">
+<![CDATA[EIP_In_16.22 := 0;//SPARE]]>
+</Line>
+<Line Number="85">
+<![CDATA[EIP_In_16.23 := 0;//SPARE]]>
+</Line>
+<Line Number="86">
+<![CDATA[EIP_In_16.24 := uOverrideK2.0;]]>
+</Line>
+<Line Number="87">
+<![CDATA[EIP_In_16.25 := uOverrideK2.1;]]>
+</Line>
+<Line Number="88">
+<![CDATA[EIP_In_16.26 := uOverrideK2.2;]]>
+</Line>
+<Line Number="89">
+<![CDATA[EIP_In_16.27 := uOverrideK2.3;]]>
+</Line>
+<Line Number="90">
+<![CDATA[EIP_In_16.28 := uOverrideK2.4;]]>
+</Line>
+<Line Number="91">
+<![CDATA[EIP_In_16.29 := uOverrideK2.5;]]>
+</Line>
+<Line Number="92">
+<![CDATA[EIP_In_16.30 := uOverrideK2.6;]]>
+</Line>
+<Line Number="93">
+<![CDATA[EIP_In_16.31 := uOverrideK2.7;]]>
+</Line>
+<Line Number="94">
+<![CDATA[CPS(EIP_In_16,OutputData[16],1);]]>
+</Line>
+<Line Number="95">
+<![CDATA[]]>
+</Line>
+<Line Number="96">
+<![CDATA[OutputData[17] 	:= rXAxisMove_CNCOffsetK2;]]>
+</Line>
+<Line Number="97">
+<![CDATA[OutputData[18] 	:= rYAxisMove_CNCOffsetK2;]]>
+</Line>
+<Line Number="98">
+<![CDATA[OutputData[19] 	:= rZAxisMove_CNCOffsetK2;]]>
+</Line>
+<Line Number="99">
+<![CDATA[OutputData[20] 	:= rUAxisMoveK2;]]>
+</Line>
+<Line Number="100">
+<![CDATA[OutputData[21] 	:= rZAxisOffset_CNCNumberK2;]]>
+</Line>
+<Line Number="101">
+<![CDATA[OutputData[22] 	:= rSmoothRad_CNCPhiK2;]]>
+</Line>
+<Line Number="102">
+<![CDATA[OutputData[23] 	:= rNominalVel_CNCConstantVelK2;]]>
+</Line>
+<Line Number="103">
+<![CDATA[OutputData[24] 	:= rLowVelMoveK2;]]>
+</Line>
+<Line Number="104">
+<![CDATA[OutputData[25] 	:= rMoveAccelerationK2;]]>
+</Line>
+<Line Number="105">
+<![CDATA[OutputData[26]	:= rMoveDecelerationK2;]]>
+</Line>
+<Line Number="106">
+<![CDATA[OutputData[27] 	:= rZAxisUpMoveK2;]]>
+</Line>
+<Line Number="107">
+<![CDATA[OutputData[28] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="108">
+<![CDATA[OutputData[29] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="109">
+<![CDATA[OutputData[30] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="110">
+<![CDATA[OutputData[31] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="111">
+<![CDATA[]]>
+</Line>
+<Line Number="112">
+<![CDATA[EIP_In_32.0 := sModeSelectorK3.0;]]>
+</Line>
+<Line Number="113">
+<![CDATA[EIP_In_32.1 := sModeSelectorK3.1;]]>
+</Line>
+<Line Number="114">
+<![CDATA[EIP_In_32.2 := sModeSelectorK3.2;]]>
+</Line>
+<Line Number="115">
+<![CDATA[EIP_In_32.3 := sModeSelectorK3.3;]]>
+</Line>
+<Line Number="116">
+<![CDATA[EIP_In_32.4 := sModeSelectorK3.4;]]>
+</Line>
+<Line Number="117">
+<![CDATA[EIP_In_32.5 := sModeSelectorK3.5;]]>
+</Line>
+<Line Number="118">
+<![CDATA[EIP_In_32.6 := sModeSelectorK3.6;]]>
+</Line>
+<Line Number="119">
+<![CDATA[EIP_In_32.7 := sModeSelectorK3.7;]]>
+</Line>
+<Line Number="120">
+<![CDATA[EIP_In_32.8 := bHaltK3;]]>
+</Line>
+<Line Number="121">
+<![CDATA[EIP_In_32.9 := bAbortMotionTaskK3;]]>
+</Line>
+<Line Number="122">
+<![CDATA[EIP_In_32.10 := bMoveK3;]]>
+</Line>
+<Line Number="123">
+<![CDATA[EIP_In_32.11 := bJogXPosK3;]]>
+</Line>
+<Line Number="124">
+<![CDATA[EIP_In_32.12 := bJogXNegK3;]]>
+</Line>
+<Line Number="125">
+<![CDATA[EIP_In_32.13 := bJogYPosK3;]]>
+</Line>
+<Line Number="126">
+<![CDATA[EIP_In_32.14 := bJogYNegK3;]]>
+</Line>
+<Line Number="127">
+<![CDATA[EIP_In_32.15 := bJogZPosK3;]]>
+</Line>
+<Line Number="128">
+<![CDATA[EIP_In_32.16 := bJogZNegK3;]]>
+</Line>
+<Line Number="129">
+<![CDATA[EIP_In_32.17 := bJogUPosK3;]]>
+</Line>
+<Line Number="130">
+<![CDATA[EIP_In_32.18 := bJogUNegK3;]]>
+</Line>
+<Line Number="131">
+<![CDATA[EIP_In_32.19 := bAckMK3;]]>
+</Line>
+<Line Number="132">
+<![CDATA[EIP_In_32.20 := bAckAllMK3;]]>
+</Line>
+<Line Number="133">
+<![CDATA[EIP_In_32.21 := bTryToClearFaultK3;]]>
+</Line>
+<Line Number="134">
+<![CDATA[EIP_In_32.22 := 0;//SPARE]]>
+</Line>
+<Line Number="135">
+<![CDATA[EIP_In_32.23 := 0;//SPARE]]>
+</Line>
+<Line Number="136">
+<![CDATA[EIP_In_32.24 := uOverrideK3.0;]]>
+</Line>
+<Line Number="137">
+<![CDATA[EIP_In_32.25 := uOverrideK3.1;]]>
+</Line>
+<Line Number="138">
+<![CDATA[EIP_In_32.26 := uOverrideK3.2;]]>
+</Line>
+<Line Number="139">
+<![CDATA[EIP_In_32.27 := uOverrideK3.3;]]>
+</Line>
+<Line Number="140">
+<![CDATA[EIP_In_32.28 := uOverrideK3.4;]]>
+</Line>
+<Line Number="141">
+<![CDATA[EIP_In_32.29 := uOverrideK3.5;]]>
+</Line>
+<Line Number="142">
+<![CDATA[EIP_In_32.30 := uOverrideK3.6;]]>
+</Line>
+<Line Number="143">
+<![CDATA[EIP_In_32.31 := uOverrideK3.7;]]>
+</Line>
+<Line Number="144">
+<![CDATA[CPS(EIP_In_32,OutputData[32],1);]]>
+</Line>
+<Line Number="145">
+<![CDATA[]]>
+</Line>
+<Line Number="146">
+<![CDATA[OutputData[33] 	:= rXAxisMove_CNCOffsetK3;]]>
+</Line>
+<Line Number="147">
+<![CDATA[OutputData[34] 	:= rYAxisMove_CNCOffsetK3;]]>
+</Line>
+<Line Number="148">
+<![CDATA[OutputData[35] 	:= rZAxisMove_CNCOffsetK3;]]>
+</Line>
+<Line Number="149">
+<![CDATA[OutputData[36] 	:= rUAxisMoveK3;]]>
+</Line>
+<Line Number="150">
+<![CDATA[OutputData[37] 	:= rZAxisOffset_CNCNumberK3;]]>
+</Line>
+<Line Number="151">
+<![CDATA[OutputData[38] 	:= rSmoothRad_CNCPhiK3;]]>
+</Line>
+<Line Number="152">
+<![CDATA[OutputData[39] 	:= rNominalVel_CNCConstantVelK3;]]>
+</Line>
+<Line Number="153">
+<![CDATA[OutputData[40] 	:= rLowVelMoveK3;]]>
+</Line>
+<Line Number="154">
+<![CDATA[OutputData[41] 	:= rMoveAccelerationK3;]]>
+</Line>
+<Line Number="155">
+<![CDATA[OutputData[42]	:= rMoveDecelerationK3;]]>
+</Line>
+<Line Number="156">
+<![CDATA[OutputData[43] 	:= rZAxisUpMoveK3;]]>
+</Line>
+<Line Number="157">
+<![CDATA[OutputData[44] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="158">
+<![CDATA[OutputData[45] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="159">
+<![CDATA[OutputData[46] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="160">
+<![CDATA[OutputData[47] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="161">
+<![CDATA[OutputData[48] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="162">
+<![CDATA[OutputData[49] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="163">
+<![CDATA[OutputData[50] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="164">
+<![CDATA[OutputData[51] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="165">
+<![CDATA[OutputData[52] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="166">
+<![CDATA[OutputData[53] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="167">
+<![CDATA[OutputData[54] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="168">
+<![CDATA[OutputData[55] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="169">
+<![CDATA[OutputData[56] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="170">
+<![CDATA[OutputData[57] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="171">
+<![CDATA[OutputData[58] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="172">
+<![CDATA[OutputData[59] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="173">
+<![CDATA[OutputData[60] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="174">
+<![CDATA[OutputData[61] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="175">
+<![CDATA[OutputData[62] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="176">
+<![CDATA[OutputData[63] 	:= 0;//SPARE]]>
+</Line>
+<Line Number="177">
+<![CDATA[]]>
+</Line>
+<Line Number="178">
+<![CDATA[]]>
+</Line>
+<Line Number="179">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="180">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="181">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="182">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="183">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="184">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="185">
+<![CDATA[(*===============================================================================================================================================*)]]>
+</Line>
+<Line Number="186">
+<![CDATA[]]>
+</Line>
+<Line Number="187">
+<![CDATA[(*TO FESTO PLC X8*)]]>
+</Line>
+<Line Number="188">
+<![CDATA[CPS(InputData[0],EIP_Out_0,1);]]>
+</Line>
+<Line Number="189">
+<![CDATA[sModeSelectedK1.0 		:= EIP_Out_0.0;]]>
+</Line>
+<Line Number="190">
+<![CDATA[sModeSelectedK1.1 		:= EIP_Out_0.1;]]>
+</Line>
+<Line Number="191">
+<![CDATA[sModeSelectedK1.2 		:= EIP_Out_0.2;]]>
+</Line>
+<Line Number="192">
+<![CDATA[sModeSelectedK1.3 		:= EIP_Out_0.3;]]>
+</Line>
+<Line Number="193">
+<![CDATA[sModeSelectedK1.4 		:= EIP_Out_0.4;]]>
+</Line>
+<Line Number="194">
+<![CDATA[sModeSelectedK1.5 		:= EIP_Out_0.5;]]>
+</Line>
+<Line Number="195">
+<![CDATA[sModeSelectedK1.6 		:= EIP_Out_0.6;]]>
+</Line>
+<Line Number="196">
+<![CDATA[sModeSelectedK1.7 		:= EIP_Out_0.7;]]>
+</Line>
+<Line Number="197">
+<![CDATA[bSafetyStatusK1 		:= EIP_Out_0.8;]]>
+</Line>
+<Line Number="198">
+<![CDATA[bMotionTaskAbortedK1 	:= EIP_Out_0.9;]]>
+</Line>
+<Line Number="199">
+<![CDATA[bEnabledK1 				:= EIP_Out_0.10;]]>
+</Line>
+<Line Number="200">
+<![CDATA[bHomedK1 				:= EIP_Out_0.11;]]>
+</Line>
+<Line Number="201">
+<![CDATA[bHaltedK1 				:= EIP_Out_0.12;]]>
+</Line>
+<Line Number="202">
+<![CDATA[bMoveDnK1 				:= EIP_Out_0.13;]]>
+</Line>
+<Line Number="203">
+<![CDATA[bMovingK1 				:= EIP_Out_0.14;]]>
+</Line>
+<Line Number="204">
+<![CDATA[bBusyK1 				:= EIP_Out_0.15;]]>
+</Line>
+<Line Number="205">
+<![CDATA[bErrorK1 				:= EIP_Out_0.16;]]>
+</Line>
+<Line Number="206">
+<![CDATA[bXAxisSWLimitNegK1 		:= EIP_Out_0.17;]]>
+</Line>
+<Line Number="207">
+<![CDATA[bXAxisSWLimitPosK1 		:= EIP_Out_0.18;]]>
+</Line>
+<Line Number="208">
+<![CDATA[bYAxisSWLimitNegK1 		:= EIP_Out_0.19;]]>
+</Line>
+<Line Number="209">
+<![CDATA[bYAxisSWLimitPosK1 		:= EIP_Out_0.20;]]>
+</Line>
+<Line Number="210">
+<![CDATA[bZAxisSWLimitNegK1 		:= EIP_Out_0.21;]]>
+</Line>
+<Line Number="211">
+<![CDATA[bZAxisSWLimitPosK1 		:= EIP_Out_0.22;]]>
+</Line>
+<Line Number="212">
+<![CDATA[bUAxisSWLimitNegK1 		:= EIP_Out_0.23;]]>
+</Line>
+<Line Number="213">
+<![CDATA[bUAxisSWLimitPosK1 		:= EIP_Out_0.24;]]>
+</Line>
+<Line Number="214">
+<![CDATA[bHSwitchPoint1K1 		:= EIP_Out_0.25;]]>
+</Line>
+<Line Number="215">
+<![CDATA[bHSwitchPoint2K1 		:= EIP_Out_0.26;]]>
+</Line>
+<Line Number="216">
+<![CDATA[bMActiveK1 				:= EIP_Out_0.27;]]>
+</Line>
+<Line Number="217">
+<![CDATA[bAtPrePickK1 			:= EIP_Out_0.28;]]>
+</Line>
+<Line Number="218">
+<![CDATA[bAtPickK1 				:= EIP_Out_0.29;]]>
+</Line>
+<Line Number="219">
+<![CDATA[bAtPrePlaceK1 			:= EIP_Out_0.30;]]>
+</Line>
+<Line Number="220">
+<![CDATA[bAtPlaceK1 				:= EIP_Out_0.31;]]>
+</Line>
+<Line Number="221">
+<![CDATA[//CPS(InputData[1],EIP_Out_1,1); //SPARE]]>
+</Line>
+<Line Number="222">
+<![CDATA[rXAxisActualPositionK1	:= InputData[2];]]>
+</Line>
+<Line Number="223">
+<![CDATA[rYAxisActualPositionK1	:= InputData[3];]]>
+</Line>
+<Line Number="224">
+<![CDATA[rZAxisActualPositionK1	:= InputData[4];]]>
+</Line>
+<Line Number="225">
+<![CDATA[rUAxisActualPositionK1	:= InputData[5];]]>
+</Line>
+<Line Number="226">
+<![CDATA[]]>
+</Line>
+<Line Number="227">
+<![CDATA[(*Last two errors listed below*)]]>
+</Line>
+<Line Number="228">
+<![CDATA[CPS(InputData[6],EIP_Out_6,1);]]>
+</Line>
+<Line Number="229">
+<![CDATA[dErrorCode1K1.0 := EIP_Out_6.0;]]>
+</Line>
+<Line Number="230">
+<![CDATA[dErrorCode1K1.1 := EIP_Out_6.1;]]>
+</Line>
+<Line Number="231">
+<![CDATA[dErrorCode1K1.2 := EIP_Out_6.2;]]>
+</Line>
+<Line Number="232">
+<![CDATA[dErrorCode1K1.3 := EIP_Out_6.3;]]>
+</Line>
+<Line Number="233">
+<![CDATA[dErrorCode1K1.4 := EIP_Out_6.4;]]>
+</Line>
+<Line Number="234">
+<![CDATA[dErrorCode1K1.5 := EIP_Out_6.5;]]>
+</Line>
+<Line Number="235">
+<![CDATA[dErrorCode1K1.6 := EIP_Out_6.6;]]>
+</Line>
+<Line Number="236">
+<![CDATA[dErrorCode1K1.7 := EIP_Out_6.7;]]>
+</Line>
+<Line Number="237">
+<![CDATA[dErrorCode1K1.8 := EIP_Out_1.8;]]>
+</Line>
+<Line Number="238">
+<![CDATA[dErrorCode1K1.9 := EIP_Out_6.9;]]>
+</Line>
+<Line Number="239">
+<![CDATA[dErrorCode1K1.10 := EIP_Out_6.10;]]>
+</Line>
+<Line Number="240">
+<![CDATA[dErrorCode1K1.11 := EIP_Out_6.11;]]>
+</Line>
+<Line Number="241">
+<![CDATA[dErrorCode1K1.12 := EIP_Out_6.12;]]>
+</Line>
+<Line Number="242">
+<![CDATA[dErrorCode1K1.13 := EIP_Out_6.13;]]>
+</Line>
+<Line Number="243">
+<![CDATA[dErrorCode1K1.14 := EIP_Out_6.14;]]>
+</Line>
+<Line Number="244">
+<![CDATA[dErrorCode1K1.15 := EIP_Out_6.15;]]>
+</Line>
+<Line Number="245">
+<![CDATA[dErrorCode1K1.16 := EIP_Out_6.16;]]>
+</Line>
+<Line Number="246">
+<![CDATA[dErrorCode1K1.17 := EIP_Out_6.17;]]>
+</Line>
+<Line Number="247">
+<![CDATA[dErrorCode1K1.18 := EIP_Out_6.18;]]>
+</Line>
+<Line Number="248">
+<![CDATA[dErrorCode1K1.19 := EIP_Out_6.19;]]>
+</Line>
+<Line Number="249">
+<![CDATA[dErrorCode1K1.20 := EIP_Out_6.20;]]>
+</Line>
+<Line Number="250">
+<![CDATA[dErrorCode1K1.21 := EIP_Out_6.21;]]>
+</Line>
+<Line Number="251">
+<![CDATA[dErrorCode1K1.22 := EIP_Out_6.22;]]>
+</Line>
+<Line Number="252">
+<![CDATA[dErrorCode1K1.23 := EIP_Out_6.23;]]>
+</Line>
+<Line Number="253">
+<![CDATA[dErrorCode1K1.24 := EIP_Out_6.24;]]>
+</Line>
+<Line Number="254">
+<![CDATA[dErrorCode1K1.25 := EIP_Out_6.25;]]>
+</Line>
+<Line Number="255">
+<![CDATA[dErrorCode1K1.26 := EIP_Out_6.26;]]>
+</Line>
+<Line Number="256">
+<![CDATA[dErrorCode1K1.27 := EIP_Out_6.27;]]>
+</Line>
+<Line Number="257">
+<![CDATA[dErrorCode1K1.28 := EIP_Out_6.28;]]>
+</Line>
+<Line Number="258">
+<![CDATA[dErrorCode1K1.29 := EIP_Out_6.29;]]>
+</Line>
+<Line Number="259">
+<![CDATA[dErrorCode1K1.30 := EIP_Out_6.30;]]>
+</Line>
+<Line Number="260">
+<![CDATA[dErrorCode1K1.31 := EIP_Out_6.31;]]>
+</Line>
+<Line Number="261">
+<![CDATA[]]>
+</Line>
+<Line Number="262">
+<![CDATA[CPS(InputData[7],EIP_Out_7,1);]]>
+</Line>
+<Line Number="263">
+<![CDATA[dErrorCode2K1.0 := EIP_Out_7.0;]]>
+</Line>
+<Line Number="264">
+<![CDATA[dErrorCode2K1.1 := EIP_Out_7.1;]]>
+</Line>
+<Line Number="265">
+<![CDATA[dErrorCode2K1.2 := EIP_Out_7.2;]]>
+</Line>
+<Line Number="266">
+<![CDATA[dErrorCode2K1.3 := EIP_Out_7.3;]]>
+</Line>
+<Line Number="267">
+<![CDATA[dErrorCode2K1.4 := EIP_Out_7.4;]]>
+</Line>
+<Line Number="268">
+<![CDATA[dErrorCode2K1.5 := EIP_Out_7.5;]]>
+</Line>
+<Line Number="269">
+<![CDATA[dErrorCode2K1.6 := EIP_Out_7.6;]]>
+</Line>
+<Line Number="270">
+<![CDATA[dErrorCode2K1.7 := EIP_Out_7.7;]]>
+</Line>
+<Line Number="271">
+<![CDATA[dErrorCode2K1.8 := EIP_Out_7.8;]]>
+</Line>
+<Line Number="272">
+<![CDATA[dErrorCode2K1.9 := EIP_Out_7.9;]]>
+</Line>
+<Line Number="273">
+<![CDATA[dErrorCode2K1.10 := EIP_Out_7.10;]]>
+</Line>
+<Line Number="274">
+<![CDATA[dErrorCode2K1.11 := EIP_Out_7.11;]]>
+</Line>
+<Line Number="275">
+<![CDATA[dErrorCode2K1.12 := EIP_Out_7.12;]]>
+</Line>
+<Line Number="276">
+<![CDATA[dErrorCode2K1.13 := EIP_Out_7.13;]]>
+</Line>
+<Line Number="277">
+<![CDATA[dErrorCode2K1.14 := EIP_Out_7.14;]]>
+</Line>
+<Line Number="278">
+<![CDATA[dErrorCode2K1.15 := EIP_Out_7.15;]]>
+</Line>
+<Line Number="279">
+<![CDATA[dErrorCode2K1.16 := EIP_Out_7.16;]]>
+</Line>
+<Line Number="280">
+<![CDATA[dErrorCode2K1.17 := EIP_Out_7.17;]]>
+</Line>
+<Line Number="281">
+<![CDATA[dErrorCode2K1.18 := EIP_Out_7.18;]]>
+</Line>
+<Line Number="282">
+<![CDATA[dErrorCode2K1.19 := EIP_Out_7.19;]]>
+</Line>
+<Line Number="283">
+<![CDATA[dErrorCode2K1.20 := EIP_Out_7.20;]]>
+</Line>
+<Line Number="284">
+<![CDATA[dErrorCode2K1.21 := EIP_Out_7.21;]]>
+</Line>
+<Line Number="285">
+<![CDATA[dErrorCode2K1.22 := EIP_Out_7.22;]]>
+</Line>
+<Line Number="286">
+<![CDATA[dErrorCode2K1.23 := EIP_Out_7.23;]]>
+</Line>
+<Line Number="287">
+<![CDATA[dErrorCode2K1.24 := EIP_Out_7.24;]]>
+</Line>
+<Line Number="288">
+<![CDATA[dErrorCode2K1.25 := EIP_Out_7.25;]]>
+</Line>
+<Line Number="289">
+<![CDATA[dErrorCode2K1.26 := EIP_Out_7.26;]]>
+</Line>
+<Line Number="290">
+<![CDATA[dErrorCode2K1.27 := EIP_Out_7.27;]]>
+</Line>
+<Line Number="291">
+<![CDATA[dErrorCode2K1.28 := EIP_Out_7.28;]]>
+</Line>
+<Line Number="292">
+<![CDATA[dErrorCode2K1.29 := EIP_Out_7.29;]]>
+</Line>
+<Line Number="293">
+<![CDATA[dErrorCode2K1.30 := EIP_Out_7.30;]]>
+</Line>
+<Line Number="294">
+<![CDATA[dErrorCode2K1.31 := EIP_Out_7.31;]]>
+</Line>
+<Line Number="295">
+<![CDATA[]]>
+</Line>
+<Line Number="296">
+<![CDATA[rGCodeLineK1 := InputData[8];]]>
+</Line>
+<Line Number="297">
+<![CDATA[]]>
+</Line>
+<Line Number="298">
+<![CDATA[//CPS(InputData[9],EIP_Out_9,1); //SPARE]]>
+</Line>
+<Line Number="299">
+<![CDATA[//CPS(InputData[10],EIP_Out_10,1); //SPARE]]>
+</Line>
+<Line Number="300">
+<![CDATA[//CPS(InputData[11],EIP_Out_11,1); //SPARE]]>
+</Line>
+<Line Number="301">
+<![CDATA[//CPS(InputData[12],EIP_Out_12,1); //SPARE]]>
+</Line>
+<Line Number="302">
+<![CDATA[//CPS(InputData[13],EIP_Out_13,1); //SPARE]]>
+</Line>
+<Line Number="303">
+<![CDATA[//CPS(InputData[14],EIP_Out_14,1); //SPARE]]>
+</Line>
+<Line Number="304">
+<![CDATA[//CPS(InputData[15],EIP_Out_15,1); //SPARE]]>
+</Line>
+<Line Number="305">
+<![CDATA[]]>
+</Line>
+<Line Number="306">
+<![CDATA[CPS(InputData[16],EIP_Out_16,1);]]>
+</Line>
+<Line Number="307">
+<![CDATA[sModeSelectedK2.0 		:= EIP_Out_16.0;]]>
+</Line>
+<Line Number="308">
+<![CDATA[sModeSelectedK2.1 		:= EIP_Out_16.1;]]>
+</Line>
+<Line Number="309">
+<![CDATA[sModeSelectedK2.2 		:= EIP_Out_16.2;]]>
+</Line>
+<Line Number="310">
+<![CDATA[sModeSelectedK2.3 		:= EIP_Out_16.3;]]>
+</Line>
+<Line Number="311">
+<![CDATA[sModeSelectedK2.4 		:= EIP_Out_16.4;]]>
+</Line>
+<Line Number="312">
+<![CDATA[sModeSelectedK2.5 		:= EIP_Out_16.5;]]>
+</Line>
+<Line Number="313">
+<![CDATA[sModeSelectedK2.6 		:= EIP_Out_16.6;]]>
+</Line>
+<Line Number="314">
+<![CDATA[sModeSelectedK2.7 		:= EIP_Out_16.7;]]>
+</Line>
+<Line Number="315">
+<![CDATA[bSafetyStatusK2 		:= EIP_Out_16.8;]]>
+</Line>
+<Line Number="316">
+<![CDATA[bMotionTaskAbortedK2 	:= EIP_Out_16.9;]]>
+</Line>
+<Line Number="317">
+<![CDATA[bEnabledK2 				:= EIP_Out_16.10;]]>
+</Line>
+<Line Number="318">
+<![CDATA[bHomedK2 				:= EIP_Out_16.11;]]>
+</Line>
+<Line Number="319">
+<![CDATA[bHaltedK2 				:= EIP_Out_16.12;]]>
+</Line>
+<Line Number="320">
+<![CDATA[bMoveDnK2 				:= EIP_Out_16.13;]]>
+</Line>
+<Line Number="321">
+<![CDATA[bMovingK2 				:= EIP_Out_16.14;]]>
+</Line>
+<Line Number="322">
+<![CDATA[bBusyK2 				:= EIP_Out_16.15;]]>
+</Line>
+<Line Number="323">
+<![CDATA[bErrorK2 				:= EIP_Out_16.16;]]>
+</Line>
+<Line Number="324">
+<![CDATA[bXAxisSWLimitNegK2 		:= EIP_Out_16.17;]]>
+</Line>
+<Line Number="325">
+<![CDATA[bXAxisSWLimitPosK2 		:= EIP_Out_16.18;]]>
+</Line>
+<Line Number="326">
+<![CDATA[bYAxisSWLimitNegK2 		:= EIP_Out_16.19;]]>
+</Line>
+<Line Number="327">
+<![CDATA[bYAxisSWLimitPosK2 		:= EIP_Out_16.20;]]>
+</Line>
+<Line Number="328">
+<![CDATA[bZAxisSWLimitNegK2 		:= EIP_Out_16.21;]]>
+</Line>
+<Line Number="329">
+<![CDATA[bZAxisSWLimitPosK2 		:= EIP_Out_16.22;]]>
+</Line>
+<Line Number="330">
+<![CDATA[bUAxisSWLimitNegK2 		:= EIP_Out_16.23;]]>
+</Line>
+<Line Number="331">
+<![CDATA[bUAxisSWLimitPosK2 		:= EIP_Out_16.24;]]>
+</Line>
+<Line Number="332">
+<![CDATA[bHSwitchPoint1K2 		:= EIP_Out_16.25;]]>
+</Line>
+<Line Number="333">
+<![CDATA[bHSwitchPoint2K2 		:= EIP_Out_16.26;]]>
+</Line>
+<Line Number="334">
+<![CDATA[bMActiveK2 				:= EIP_Out_16.27;]]>
+</Line>
+<Line Number="335">
+<![CDATA[bAtPrePickK2 			:= EIP_Out_16.28;]]>
+</Line>
+<Line Number="336">
+<![CDATA[bAtPickK2 				:= EIP_Out_16.29;]]>
+</Line>
+<Line Number="337">
+<![CDATA[bAtPrePlaceK2 			:= EIP_Out_16.30;]]>
+</Line>
+<Line Number="338">
+<![CDATA[bAtPlaceK2 				:= EIP_Out_16.31;]]>
+</Line>
+<Line Number="339">
+<![CDATA[]]>
+</Line>
+<Line Number="340">
+<![CDATA[//CPS(InputData[17],EIP_Out_17,1); //SPARE]]>
+</Line>
+<Line Number="341">
+<![CDATA[]]>
+</Line>
+<Line Number="342">
+<![CDATA[rXAxisActualPositionK2	:= InputData[18];]]>
+</Line>
+<Line Number="343">
+<![CDATA[rYAxisActualPositionK2	:= InputData[19];]]>
+</Line>
+<Line Number="344">
+<![CDATA[rZAxisActualPositionK2	:= InputData[20];]]>
+</Line>
+<Line Number="345">
+<![CDATA[rUAxisActualPositionK2	:= InputData[21];]]>
+</Line>
+<Line Number="346">
+<![CDATA[]]>
+</Line>
+<Line Number="347">
+<![CDATA[(*Last two errors listed below*)]]>
+</Line>
+<Line Number="348">
+<![CDATA[CPS(InputData[22],EIP_Out_22,1);]]>
+</Line>
+<Line Number="349">
+<![CDATA[dErrorCode1K2.0 := EIP_Out_22.0;]]>
+</Line>
+<Line Number="350">
+<![CDATA[dErrorCode1K2.1 := EIP_Out_22.1;]]>
+</Line>
+<Line Number="351">
+<![CDATA[dErrorCode1K2.2 := EIP_Out_22.2;]]>
+</Line>
+<Line Number="352">
+<![CDATA[dErrorCode1K2.3 := EIP_Out_22.3;]]>
+</Line>
+<Line Number="353">
+<![CDATA[dErrorCode1K2.4 := EIP_Out_22.4;]]>
+</Line>
+<Line Number="354">
+<![CDATA[dErrorCode1K2.5 := EIP_Out_22.5;]]>
+</Line>
+<Line Number="355">
+<![CDATA[dErrorCode1K2.6 := EIP_Out_22.6;]]>
+</Line>
+<Line Number="356">
+<![CDATA[dErrorCode1K2.7 := EIP_Out_22.7;]]>
+</Line>
+<Line Number="357">
+<![CDATA[dErrorCode1K2.8 := EIP_Out_1.8;]]>
+</Line>
+<Line Number="358">
+<![CDATA[dErrorCode1K2.9 := EIP_Out_22.9;]]>
+</Line>
+<Line Number="359">
+<![CDATA[dErrorCode1K2.10 := EIP_Out_22.10;]]>
+</Line>
+<Line Number="360">
+<![CDATA[dErrorCode1K2.11 := EIP_Out_22.11;]]>
+</Line>
+<Line Number="361">
+<![CDATA[dErrorCode1K2.12 := EIP_Out_22.12;]]>
+</Line>
+<Line Number="362">
+<![CDATA[dErrorCode1K2.13 := EIP_Out_22.13;]]>
+</Line>
+<Line Number="363">
+<![CDATA[dErrorCode1K2.14 := EIP_Out_22.14;]]>
+</Line>
+<Line Number="364">
+<![CDATA[dErrorCode1K2.15 := EIP_Out_22.15;]]>
+</Line>
+<Line Number="365">
+<![CDATA[dErrorCode1K2.16 := EIP_Out_22.16;]]>
+</Line>
+<Line Number="366">
+<![CDATA[dErrorCode1K2.17 := EIP_Out_22.17;]]>
+</Line>
+<Line Number="367">
+<![CDATA[dErrorCode1K2.18 := EIP_Out_22.18;]]>
+</Line>
+<Line Number="368">
+<![CDATA[dErrorCode1K2.19 := EIP_Out_22.19;]]>
+</Line>
+<Line Number="369">
+<![CDATA[dErrorCode1K2.20 := EIP_Out_22.20;]]>
+</Line>
+<Line Number="370">
+<![CDATA[dErrorCode1K2.21 := EIP_Out_22.21;]]>
+</Line>
+<Line Number="371">
+<![CDATA[dErrorCode1K2.22 := EIP_Out_22.22;]]>
+</Line>
+<Line Number="372">
+<![CDATA[dErrorCode1K2.23 := EIP_Out_22.23;]]>
+</Line>
+<Line Number="373">
+<![CDATA[dErrorCode1K2.24 := EIP_Out_22.24;]]>
+</Line>
+<Line Number="374">
+<![CDATA[dErrorCode1K2.25 := EIP_Out_22.25;]]>
+</Line>
+<Line Number="375">
+<![CDATA[dErrorCode1K2.26 := EIP_Out_22.26;]]>
+</Line>
+<Line Number="376">
+<![CDATA[dErrorCode1K2.27 := EIP_Out_22.27;]]>
+</Line>
+<Line Number="377">
+<![CDATA[dErrorCode1K2.28 := EIP_Out_22.28;]]>
+</Line>
+<Line Number="378">
+<![CDATA[dErrorCode1K2.29 := EIP_Out_22.29;]]>
+</Line>
+<Line Number="379">
+<![CDATA[dErrorCode1K2.30 := EIP_Out_22.30;]]>
+</Line>
+<Line Number="380">
+<![CDATA[dErrorCode1K2.31 := EIP_Out_22.31;]]>
+</Line>
+<Line Number="381">
+<![CDATA[]]>
+</Line>
+<Line Number="382">
+<![CDATA[CPS(InputData[23],EIP_Out_23,1);]]>
+</Line>
+<Line Number="383">
+<![CDATA[dErrorCode2K2.0 := EIP_Out_23.0;]]>
+</Line>
+<Line Number="384">
+<![CDATA[dErrorCode2K2.1 := EIP_Out_23.1;]]>
+</Line>
+<Line Number="385">
+<![CDATA[dErrorCode2K2.2 := EIP_Out_23.2;]]>
+</Line>
+<Line Number="386">
+<![CDATA[dErrorCode2K2.3 := EIP_Out_23.3;]]>
+</Line>
+<Line Number="387">
+<![CDATA[dErrorCode2K2.4 := EIP_Out_23.4;]]>
+</Line>
+<Line Number="388">
+<![CDATA[dErrorCode2K2.5 := EIP_Out_23.5;]]>
+</Line>
+<Line Number="389">
+<![CDATA[dErrorCode2K2.6 := EIP_Out_23.6;]]>
+</Line>
+<Line Number="390">
+<![CDATA[dErrorCode2K2.7 := EIP_Out_23.7;]]>
+</Line>
+<Line Number="391">
+<![CDATA[dErrorCode2K2.8 := EIP_Out_23.8;]]>
+</Line>
+<Line Number="392">
+<![CDATA[dErrorCode2K2.9 := EIP_Out_23.9;]]>
+</Line>
+<Line Number="393">
+<![CDATA[dErrorCode2K2.10 := EIP_Out_23.10;]]>
+</Line>
+<Line Number="394">
+<![CDATA[dErrorCode2K2.11 := EIP_Out_23.11;]]>
+</Line>
+<Line Number="395">
+<![CDATA[dErrorCode2K2.12 := EIP_Out_23.12;]]>
+</Line>
+<Line Number="396">
+<![CDATA[dErrorCode2K2.13 := EIP_Out_23.13;]]>
+</Line>
+<Line Number="397">
+<![CDATA[dErrorCode2K2.14 := EIP_Out_23.14;]]>
+</Line>
+<Line Number="398">
+<![CDATA[dErrorCode2K2.15 := EIP_Out_23.15;]]>
+</Line>
+<Line Number="399">
+<![CDATA[dErrorCode2K2.16 := EIP_Out_23.16;]]>
+</Line>
+<Line Number="400">
+<![CDATA[dErrorCode2K2.17 := EIP_Out_23.17;]]>
+</Line>
+<Line Number="401">
+<![CDATA[dErrorCode2K2.18 := EIP_Out_23.18;]]>
+</Line>
+<Line Number="402">
+<![CDATA[dErrorCode2K2.19 := EIP_Out_23.19;]]>
+</Line>
+<Line Number="403">
+<![CDATA[dErrorCode2K2.20 := EIP_Out_23.20;]]>
+</Line>
+<Line Number="404">
+<![CDATA[dErrorCode2K2.21 := EIP_Out_23.21;]]>
+</Line>
+<Line Number="405">
+<![CDATA[dErrorCode2K2.22 := EIP_Out_23.22;]]>
+</Line>
+<Line Number="406">
+<![CDATA[dErrorCode2K2.23 := EIP_Out_23.23;]]>
+</Line>
+<Line Number="407">
+<![CDATA[dErrorCode2K2.24 := EIP_Out_23.24;]]>
+</Line>
+<Line Number="408">
+<![CDATA[dErrorCode2K2.25 := EIP_Out_23.25;]]>
+</Line>
+<Line Number="409">
+<![CDATA[dErrorCode2K2.26 := EIP_Out_23.26;]]>
+</Line>
+<Line Number="410">
+<![CDATA[dErrorCode2K2.27 := EIP_Out_23.27;]]>
+</Line>
+<Line Number="411">
+<![CDATA[dErrorCode2K2.28 := EIP_Out_23.28;]]>
+</Line>
+<Line Number="412">
+<![CDATA[dErrorCode2K2.29 := EIP_Out_23.29;]]>
+</Line>
+<Line Number="413">
+<![CDATA[dErrorCode2K2.30 := EIP_Out_23.30;]]>
+</Line>
+<Line Number="414">
+<![CDATA[dErrorCode2K2.31 := EIP_Out_23.31;]]>
+</Line>
+<Line Number="415">
+<![CDATA[]]>
+</Line>
+<Line Number="416">
+<![CDATA[rGCodeLineK2 := InputData[24];]]>
+</Line>
+<Line Number="417">
+<![CDATA[]]>
+</Line>
+<Line Number="418">
+<![CDATA[//CPS(InputData[25],EIP_Out_25,1); //SPARE]]>
+</Line>
+<Line Number="419">
+<![CDATA[//CPS(InputData[26],EIP_Out_26,1); //SPARE]]>
+</Line>
+<Line Number="420">
+<![CDATA[//CPS(InputData[27],EIP_Out_27,1); //SPARE]]>
+</Line>
+<Line Number="421">
+<![CDATA[//CPS(InputData[28],EIP_Out_28,1); //SPARE]]>
+</Line>
+<Line Number="422">
+<![CDATA[//CPS(InputData[29],EIP_Out_29,1); //SPARE]]>
+</Line>
+<Line Number="423">
+<![CDATA[//CPS(InputData[30],EIP_Out_30,1); //SPARE]]>
+</Line>
+<Line Number="424">
+<![CDATA[//CPS(InputData[31],EIP_Out_31,1); //SPARE]]>
+</Line>
+<Line Number="425">
+<![CDATA[]]>
+</Line>
+<Line Number="426">
+<![CDATA[CPS(InputData[32],EIP_Out_32,1);]]>
+</Line>
+<Line Number="427">
+<![CDATA[sModeSelectedK3.0 		:= EIP_Out_32.0;]]>
+</Line>
+<Line Number="428">
+<![CDATA[sModeSelectedK3.1 		:= EIP_Out_32.1;]]>
+</Line>
+<Line Number="429">
+<![CDATA[sModeSelectedK3.2 		:= EIP_Out_32.2;]]>
+</Line>
+<Line Number="430">
+<![CDATA[sModeSelectedK3.3 		:= EIP_Out_32.3;]]>
+</Line>
+<Line Number="431">
+<![CDATA[sModeSelectedK3.4 		:= EIP_Out_32.4;]]>
+</Line>
+<Line Number="432">
+<![CDATA[sModeSelectedK3.5 		:= EIP_Out_32.5;]]>
+</Line>
+<Line Number="433">
+<![CDATA[sModeSelectedK3.6 		:= EIP_Out_32.6;]]>
+</Line>
+<Line Number="434">
+<![CDATA[sModeSelectedK3.7 		:= EIP_Out_32.7;]]>
+</Line>
+<Line Number="435">
+<![CDATA[bSafetyStatusK3 		:= EIP_Out_32.8;]]>
+</Line>
+<Line Number="436">
+<![CDATA[bMotionTaskAbortedK3 	:= EIP_Out_32.9;]]>
+</Line>
+<Line Number="437">
+<![CDATA[bEnabledK3 				:= EIP_Out_32.10;]]>
+</Line>
+<Line Number="438">
+<![CDATA[bHomedK3 				:= EIP_Out_32.11;]]>
+</Line>
+<Line Number="439">
+<![CDATA[bHaltedK3 				:= EIP_Out_32.12;]]>
+</Line>
+<Line Number="440">
+<![CDATA[bMoveDnK3 				:= EIP_Out_32.13;]]>
+</Line>
+<Line Number="441">
+<![CDATA[bMovingK3 				:= EIP_Out_32.14;]]>
+</Line>
+<Line Number="442">
+<![CDATA[bBusyK3 				:= EIP_Out_32.15;]]>
+</Line>
+<Line Number="443">
+<![CDATA[bErrorK3 				:= EIP_Out_32.16;]]>
+</Line>
+<Line Number="444">
+<![CDATA[bXAxisSWLimitNegK3 		:= EIP_Out_32.17;]]>
+</Line>
+<Line Number="445">
+<![CDATA[bXAxisSWLimitPosK3 		:= EIP_Out_32.18;]]>
+</Line>
+<Line Number="446">
+<![CDATA[bYAxisSWLimitNegK3 		:= EIP_Out_32.19;]]>
+</Line>
+<Line Number="447">
+<![CDATA[bYAxisSWLimitPosK3 		:= EIP_Out_32.20;]]>
+</Line>
+<Line Number="448">
+<![CDATA[bZAxisSWLimitNegK3 		:= EIP_Out_32.21;]]>
+</Line>
+<Line Number="449">
+<![CDATA[bZAxisSWLimitPosK3 		:= EIP_Out_32.22;]]>
+</Line>
+<Line Number="450">
+<![CDATA[bUAxisSWLimitNegK3 		:= EIP_Out_32.23;]]>
+</Line>
+<Line Number="451">
+<![CDATA[bUAxisSWLimitPosK3 		:= EIP_Out_32.24;]]>
+</Line>
+<Line Number="452">
+<![CDATA[bHSwitchPoint1K3 		:= EIP_Out_32.25;]]>
+</Line>
+<Line Number="453">
+<![CDATA[bHSwitchPoint2K3 		:= EIP_Out_32.26;]]>
+</Line>
+<Line Number="454">
+<![CDATA[bMActiveK3 				:= EIP_Out_32.27;]]>
+</Line>
+<Line Number="455">
+<![CDATA[bAtPrePickK3 			:= EIP_Out_32.28;]]>
+</Line>
+<Line Number="456">
+<![CDATA[bAtPickK3 				:= EIP_Out_32.29;]]>
+</Line>
+<Line Number="457">
+<![CDATA[bAtPrePlaceK3 			:= EIP_Out_32.30;]]>
+</Line>
+<Line Number="458">
+<![CDATA[bAtPlaceK3 				:= EIP_Out_32.31;]]>
+</Line>
+<Line Number="459">
+<![CDATA[]]>
+</Line>
+<Line Number="460">
+<![CDATA[//CPS(InputData[33],EIP_Out_33,1); //SPARE]]>
+</Line>
+<Line Number="461">
+<![CDATA[]]>
+</Line>
+<Line Number="462">
+<![CDATA[rXAxisActualPositionK3	:= InputData[34];]]>
+</Line>
+<Line Number="463">
+<![CDATA[rYAxisActualPositionK3	:= InputData[35];]]>
+</Line>
+<Line Number="464">
+<![CDATA[rZAxisActualPositionK3	:= InputData[36];]]>
+</Line>
+<Line Number="465">
+<![CDATA[rUAxisActualPositionK3	:= InputData[37];]]>
+</Line>
+<Line Number="466">
+<![CDATA[]]>
+</Line>
+<Line Number="467">
+<![CDATA[(*Last two errors listed below*)]]>
+</Line>
+<Line Number="468">
+<![CDATA[CPS(InputData[38],EIP_Out_38,1);]]>
+</Line>
+<Line Number="469">
+<![CDATA[dErrorCode1K3.0 := EIP_Out_38.0;]]>
+</Line>
+<Line Number="470">
+<![CDATA[dErrorCode1K3.1 := EIP_Out_38.1;]]>
+</Line>
+<Line Number="471">
+<![CDATA[dErrorCode1K3.2 := EIP_Out_38.2;]]>
+</Line>
+<Line Number="472">
+<![CDATA[dErrorCode1K3.3 := EIP_Out_38.3;]]>
+</Line>
+<Line Number="473">
+<![CDATA[dErrorCode1K3.4 := EIP_Out_38.4;]]>
+</Line>
+<Line Number="474">
+<![CDATA[dErrorCode1K3.5 := EIP_Out_38.5;]]>
+</Line>
+<Line Number="475">
+<![CDATA[dErrorCode1K3.6 := EIP_Out_38.6;]]>
+</Line>
+<Line Number="476">
+<![CDATA[dErrorCode1K3.7 := EIP_Out_38.7;]]>
+</Line>
+<Line Number="477">
+<![CDATA[dErrorCode1K3.8 := EIP_Out_1.8;]]>
+</Line>
+<Line Number="478">
+<![CDATA[dErrorCode1K3.9 := EIP_Out_38.9;]]>
+</Line>
+<Line Number="479">
+<![CDATA[dErrorCode1K3.10 := EIP_Out_38.10;]]>
+</Line>
+<Line Number="480">
+<![CDATA[dErrorCode1K3.11 := EIP_Out_38.11;]]>
+</Line>
+<Line Number="481">
+<![CDATA[dErrorCode1K3.12 := EIP_Out_38.12;]]>
+</Line>
+<Line Number="482">
+<![CDATA[dErrorCode1K3.13 := EIP_Out_38.13;]]>
+</Line>
+<Line Number="483">
+<![CDATA[dErrorCode1K3.14 := EIP_Out_38.14;]]>
+</Line>
+<Line Number="484">
+<![CDATA[dErrorCode1K3.15 := EIP_Out_38.15;]]>
+</Line>
+<Line Number="485">
+<![CDATA[dErrorCode1K3.16 := EIP_Out_38.16;]]>
+</Line>
+<Line Number="486">
+<![CDATA[dErrorCode1K3.17 := EIP_Out_38.17;]]>
+</Line>
+<Line Number="487">
+<![CDATA[dErrorCode1K3.18 := EIP_Out_38.18;]]>
+</Line>
+<Line Number="488">
+<![CDATA[dErrorCode1K3.19 := EIP_Out_38.19;]]>
+</Line>
+<Line Number="489">
+<![CDATA[dErrorCode1K3.20 := EIP_Out_38.20;]]>
+</Line>
+<Line Number="490">
+<![CDATA[dErrorCode1K3.21 := EIP_Out_38.21;]]>
+</Line>
+<Line Number="491">
+<![CDATA[dErrorCode1K3.22 := EIP_Out_38.22;]]>
+</Line>
+<Line Number="492">
+<![CDATA[dErrorCode1K3.23 := EIP_Out_38.23;]]>
+</Line>
+<Line Number="493">
+<![CDATA[dErrorCode1K3.24 := EIP_Out_38.24;]]>
+</Line>
+<Line Number="494">
+<![CDATA[dErrorCode1K3.25 := EIP_Out_38.25;]]>
+</Line>
+<Line Number="495">
+<![CDATA[dErrorCode1K3.26 := EIP_Out_38.26;]]>
+</Line>
+<Line Number="496">
+<![CDATA[dErrorCode1K3.27 := EIP_Out_38.27;]]>
+</Line>
+<Line Number="497">
+<![CDATA[dErrorCode1K3.28 := EIP_Out_38.28;]]>
+</Line>
+<Line Number="498">
+<![CDATA[dErrorCode1K3.29 := EIP_Out_38.29;]]>
+</Line>
+<Line Number="499">
+<![CDATA[dErrorCode1K3.30 := EIP_Out_38.30;]]>
+</Line>
+<Line Number="500">
+<![CDATA[dErrorCode1K3.31 := EIP_Out_38.31;]]>
+</Line>
+<Line Number="501">
+<![CDATA[]]>
+</Line>
+<Line Number="502">
+<![CDATA[CPS(InputData[39],EIP_Out_39,1);]]>
+</Line>
+<Line Number="503">
+<![CDATA[dErrorCode2K3.0 := EIP_Out_39.0;]]>
+</Line>
+<Line Number="504">
+<![CDATA[dErrorCode2K3.1 := EIP_Out_39.1;]]>
+</Line>
+<Line Number="505">
+<![CDATA[dErrorCode2K3.2 := EIP_Out_39.2;]]>
+</Line>
+<Line Number="506">
+<![CDATA[dErrorCode2K3.3 := EIP_Out_39.3;]]>
+</Line>
+<Line Number="507">
+<![CDATA[dErrorCode2K3.4 := EIP_Out_39.4;]]>
+</Line>
+<Line Number="508">
+<![CDATA[dErrorCode2K3.5 := EIP_Out_39.5;]]>
+</Line>
+<Line Number="509">
+<![CDATA[dErrorCode2K3.6 := EIP_Out_39.6;]]>
+</Line>
+<Line Number="510">
+<![CDATA[dErrorCode2K3.7 := EIP_Out_39.7;]]>
+</Line>
+<Line Number="511">
+<![CDATA[dErrorCode2K3.8 := EIP_Out_39.8;]]>
+</Line>
+<Line Number="512">
+<![CDATA[dErrorCode2K3.9 := EIP_Out_39.9;]]>
+</Line>
+<Line Number="513">
+<![CDATA[dErrorCode2K3.10 := EIP_Out_39.10;]]>
+</Line>
+<Line Number="514">
+<![CDATA[dErrorCode2K3.11 := EIP_Out_39.11;]]>
+</Line>
+<Line Number="515">
+<![CDATA[dErrorCode2K3.12 := EIP_Out_39.12;]]>
+</Line>
+<Line Number="516">
+<![CDATA[dErrorCode2K3.13 := EIP_Out_39.13;]]>
+</Line>
+<Line Number="517">
+<![CDATA[dErrorCode2K3.14 := EIP_Out_39.14;]]>
+</Line>
+<Line Number="518">
+<![CDATA[dErrorCode2K3.15 := EIP_Out_39.15;]]>
+</Line>
+<Line Number="519">
+<![CDATA[dErrorCode2K3.16 := EIP_Out_39.16;]]>
+</Line>
+<Line Number="520">
+<![CDATA[dErrorCode2K3.17 := EIP_Out_39.17;]]>
+</Line>
+<Line Number="521">
+<![CDATA[dErrorCode2K3.18 := EIP_Out_39.18;]]>
+</Line>
+<Line Number="522">
+<![CDATA[dErrorCode2K3.19 := EIP_Out_39.19;]]>
+</Line>
+<Line Number="523">
+<![CDATA[dErrorCode2K3.20 := EIP_Out_39.20;]]>
+</Line>
+<Line Number="524">
+<![CDATA[dErrorCode2K3.21 := EIP_Out_39.21;]]>
+</Line>
+<Line Number="525">
+<![CDATA[dErrorCode2K3.22 := EIP_Out_39.22;]]>
+</Line>
+<Line Number="526">
+<![CDATA[dErrorCode2K3.23 := EIP_Out_39.23;]]>
+</Line>
+<Line Number="527">
+<![CDATA[dErrorCode2K3.24 := EIP_Out_39.24;]]>
+</Line>
+<Line Number="528">
+<![CDATA[dErrorCode2K3.25 := EIP_Out_39.25;]]>
+</Line>
+<Line Number="529">
+<![CDATA[dErrorCode2K3.26 := EIP_Out_39.26;]]>
+</Line>
+<Line Number="530">
+<![CDATA[dErrorCode2K3.27 := EIP_Out_39.27;]]>
+</Line>
+<Line Number="531">
+<![CDATA[dErrorCode2K3.28 := EIP_Out_39.28;]]>
+</Line>
+<Line Number="532">
+<![CDATA[dErrorCode2K3.29 := EIP_Out_39.29;]]>
+</Line>
+<Line Number="533">
+<![CDATA[dErrorCode2K3.30 := EIP_Out_39.30;]]>
+</Line>
+<Line Number="534">
+<![CDATA[dErrorCode2K3.31 := EIP_Out_39.31;]]>
+</Line>
+<Line Number="535">
+<![CDATA[]]>
+</Line>
+<Line Number="536">
+<![CDATA[rGCodeLineK3 := InputData[40];]]>
+</Line>
+<Line Number="537">
+<![CDATA[]]>
+</Line>
+<Line Number="538">
+<![CDATA[//CPS(InputData[41],EIP_Out_41,1); //SPARE]]>
+</Line>
+<Line Number="539">
+<![CDATA[//CPS(InputData[42],EIP_Out_42,1); //SPARE]]>
+</Line>
+<Line Number="540">
+<![CDATA[//CPS(InputData[43],EIP_Out_43,1); //SPARE]]>
+</Line>
+<Line Number="541">
+<![CDATA[//CPS(InputData[44],EIP_Out_44,1); //SPARE]]>
+</Line>
+<Line Number="542">
+<![CDATA[//CPS(InputData[45],EIP_Out_45,1); //SPARE]]>
+</Line>
+<Line Number="543">
+<![CDATA[//CPS(InputData[46],EIP_Out_46,1); //SPARE]]>
+</Line>
+<Line Number="544">
+<![CDATA[//CPS(InputData[47],EIP_Out_47,1); //SPARE]]>
+</Line>
+<Line Number="545">
+<![CDATA[]]>
+</Line>
+<Line Number="546">
+<![CDATA[//CPS(InputData[48],EIP_Out_48,1); //SPARE]]>
+</Line>
+<Line Number="547">
+<![CDATA[//CPS(InputData[49],EIP_Out_49,1); //SPARE]]>
+</Line>
+<Line Number="548">
+<![CDATA[//CPS(InputData[50],EIP_Out_50,1); //SPARE]]>
+</Line>
+<Line Number="549">
+<![CDATA[//CPS(InputData[51],EIP_Out_51,1); //SPARE]]>
+</Line>
+<Line Number="550">
+<![CDATA[//CPS(InputData[52],EIP_Out_52,1); //SPARE]]>
+</Line>
+<Line Number="551">
+<![CDATA[//CPS(InputData[53],EIP_Out_53,1); //SPARE]]>
+</Line>
+<Line Number="552">
+<![CDATA[//CPS(InputData[54],EIP_Out_54,1); //SPARE]]>
+</Line>
+<Line Number="553">
+<![CDATA[//CPS(InputData[55],EIP_Out_55,1); //SPARE]]>
+</Line>
+<Line Number="554">
+<![CDATA[//CPS(InputData[56],EIP_Out_56,1); //SPARE]]>
+</Line>
+<Line Number="555">
+<![CDATA[//CPS(InputData[57],EIP_Out_57,1); //SPARE]]>
+</Line>
+<Line Number="556">
+<![CDATA[//CPS(InputData[58],EIP_Out_58,1); //SPARE]]>
+</Line>
+<Line Number="557">
+<![CDATA[//CPS(InputData[59],EIP_Out_59,1); //SPARE]]>
+</Line>
+<Line Number="558">
+<![CDATA[//CPS(InputData[60],EIP_Out_60,1); //SPARE]]>
+</Line>
+<Line Number="559">
+<![CDATA[//CPS(InputData[61],EIP_Out_61,1); //SPARE]]>
+</Line>
+<Line Number="560">
+<![CDATA[//CPS(InputData[62],EIP_Out_62,1); //SPARE]]>
+</Line>
+<Line Number="561">
+<![CDATA[//CPS(InputData[63],EIP_Out_63,1); //SPARE]]>
+</Line>
+<Line Number="562">
+<![CDATA[]]>
+</Line>
+<Line Number="563">
+<![CDATA[]]>
+</Line>
+<Line Number="564">
+<![CDATA[]]>
+</Line>
+<Line Number="565">
+<![CDATA[]]>
+</Line>
+</STContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+</Controller>
+</RSLogix5000Content>
