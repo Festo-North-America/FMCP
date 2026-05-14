@@ -1,5 +1,4 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
-*.exe filter=lfs diff=lfs merge=lfs -text
 *.fsi filter=lfs diff=lfs merge=lfs -text
 *.cab filter=lfs diff=lfs merge=lfs -text
 *.package filter=lfs diff=lfs merge=lfs -text
